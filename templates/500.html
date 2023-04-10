@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- error 500 container -->
+<div class="d-flex flex-column align-items-center">
+    <h1>500 Internal Server Error</h1>
+    <p>Ooops!!!, The Server has Crashed. Apologizes</p>
+<!-- Return to home page button -->
+    <a href="{% url 'home' %}" class="btn button-style">Home</a>
+</div>
+{% endblock %}

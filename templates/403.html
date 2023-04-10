@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- error 403 container -->
+<div class="d-flex flex-column align-items-center">
+    <h1>403 Forbidden</h1>
+    <p>You do not permission to perform this action!</p>
+<!-- return to home page button -->
+    <a href="{% url 'home' %}" class="btn button-style">Home</a>
+</div>
+{% endblock %}
