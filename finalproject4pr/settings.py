@@ -32,9 +32,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # changing from True to False before heroku deployment
 DEBUG = False
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['finalproject4pr.herokuapp.com', 'localhost']
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
