@@ -23,6 +23,7 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
+    <!-- To be Added suggestion to  MLB Polls -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
@@ -43,19 +44,19 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">MLB Polls</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">MLB Polls</a>
-                    </li>
                     {% endif %}
 
                 </ul>
                 <span class="navbar-text text-muted">
-                    adventures of a software developer
+                    Register for free, and let's talk about Baseball!!!
                 </span>
             </div>
         </div>
@@ -82,7 +83,7 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
+        <p class="m-0 text-center text-white">Made by Baseball says it!!!</p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
             <i class="fab fa-twitter-square ms-3"></i>
             <i class="fab fa-instagram-square ms-3"></i>
