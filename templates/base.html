@@ -61,6 +61,20 @@
             </div>
         </div>
     </nav>
+
+    <!-- Giving a wave to the user when login -->
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav ms-auto mt-3">
+        <li class="nav-item">
+            <h4>Hi Dude!!! <span class="badge 
+            {% if user.is_staff %}bg-primary
+            {%else%}bg-success
+            {% endif %}">{{ user.username }}</span></h4>
+        </li>
+    </ul>
+    {% endif %}
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
