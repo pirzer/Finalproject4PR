@@ -9,6 +9,13 @@ body {
     color: #4A4A4F;
 }
 
+/******************* Background image for the home page *******************/
+.header-image {
+    height: 100%;
+    width: 100%;
+}
+/******************* Background image for the home page *******************/
+
 .red-o {
     color: #E84610;
 }
