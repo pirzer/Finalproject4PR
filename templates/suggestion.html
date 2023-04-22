@@ -7,7 +7,7 @@
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if user.is_authenticated %}
-	                <h3>Please, send your topic to be discussed:</h3>
+	                <h3>Announcing upcoming BASE events</h3>
 	                <p>Posting as: <span class="badge bg-primary">{{ request.user.username }}</span></p>
 	                <form method="post" enctype="multipart/form-data" action="{% url 'suggestion' %}" style="margin-top: 1.3em;">
 	                    {{ form | crispy }}

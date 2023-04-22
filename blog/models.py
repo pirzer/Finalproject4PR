@@ -7,10 +7,10 @@ from django.utils import timezone
 
 
 # TO BE updated STATUS below
-# STATUS = ((0, "Draft"), (1, "Scheduled"), (2, "Cancelled"))
-# AUDIENCE = ((0, "Admin"), (1, "Everyone"))
+STATUS = ((0, "Draft"), (1, "Scheduled"), (2, "Cancelled"))
+AUDIENCE = ((0, "Admin"), (1, "Everyone"))
 
-STATUS = ((0, "Draft"), (1, "Published"))
+# STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Post(models.Model):
