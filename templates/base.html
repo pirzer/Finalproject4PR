@@ -23,12 +23,14 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <!-- To be Added suggestion to  MLB Polls -->
+    <!-- Report BASE Event added before Logout -->
+    <!-- code star changed by BASE says it !!! url home below-->
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">BA<span class="red-o">SE</span>says<span
+                        class="thin">|It!!!</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,14 +40,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
+                    <!-- Standard navigation itmes -->
+                    <li class="nav-item">
+                        <a role="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            About
+                        </a>
+                    </li> 
                     {% if user.is_authenticated %}
+                    <!-- 'account_login' changed by 'suggestion' -Report BASE Event -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'suggestion' %}">Report BASE Event</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">MLB Polls</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
@@ -56,13 +65,13 @@
 
                 </ul>
                 <span class="navbar-text text-muted">
-                    Register for free, and let's talk about Baseball!!!
+                    Register for free, and let's shout "Play Ball"!!!
                 </span>
             </div>
         </div>
     </nav>
 
-    <!-- Giving a wave to the user when login -->
+    <!-- Giving a wave to the user when loggin -->
     {% if user.is_authenticated %}
     <ul class="navbar-nav ms-auto mt-3">
         <li class="nav-item">
@@ -87,6 +96,29 @@
             </div>
         </div>
     </div>
+
+        <!-- Modal for About text -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="aboutModalLabel">About - BASE says it!!! </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body about-text">
+                    Baseball [BASE] says it!!! is a website for registers users, curious fans, and even 
+                    for BASE detractors. Everyone is free to explain and disscusse open topics.
+                    We cheer that every single fan who loves this sport can share and post all the passion
+                    here but respecting opinions, origins, ideas from our memebers. If you do not love BASE, 
+                    we expected that you can comprenhend BASE a bit more. Please, register an account or 
+                    login to shout together "Play Ball"
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
     <main class="flex-shrink-0 main-bg">
 
