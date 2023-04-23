@@ -23,7 +23,7 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <!-- Report BASE Event added before Logout -->
+    <!-- Report Polls added before Logout -->
     <!-- code star changed by BASE says it !!! url home below-->
 
 
@@ -47,9 +47,9 @@
                         </a>
                     </li> 
                     {% if user.is_authenticated %}
-                    <!-- 'account_login' changed by 'suggestion' -Report BASE Event -->
+                    <!-- 'account_login' changed by 'suggestion' -Polls -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'suggestion' %}">Report BASE Event</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Polls</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
