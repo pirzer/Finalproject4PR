@@ -2,10 +2,26 @@
 
 {% block content %}
 
+         <!-- Beginning of Cover Image -->
+<div class="parent-div-home">
+    <div class="row g-0">
+        <img class="header-image" src="https://res.cloudinary.com/dkja2ko1g/image/upload/v1682178583/Finalproject4pr/WebsiteCOVER_nigx8l.jpg" alt="best players">
+    </div>
+    <!-- Caption on home page -->
+    <div class="bg-dark rounded text-light text-center caption">
+        <h2 class="caption-header">Welcome to BASE says it!! {{ request.GET.page }}</h2>
+            <p class="caption-text">This site you can share experience, and learn about Baseball history also. <br> 
+                Feel free to send you comments and ideas, you can do so by create an account or login.</p>
+    </div>
+</div>
+         <!-- End of Cover Image -->
+         <!-- Blog Entries Column -->
+ 
 <div class="container-fluid">
     <div class="row">
-
+        
         <!-- Blog Entries Column -->
+        <!-- https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
@@ -15,7 +31,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    src="https://res.cloudinary.com/dkja2ko1g/image/upload/v1681683726/Finalproject4pr/baseball1_jagzcx.jpg">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
