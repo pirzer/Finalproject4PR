@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # To change Debug from True to False before heroku deployment
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['finalproject4pr.herokuapp.com', 'localhost']
 
@@ -100,22 +100,22 @@ TEMPLATES = [
     },
 ]
 
-# SUMMERNOTE_CONFIG Added
-# SUMMERNOTE_CONFIG = {
+# SUMMERNOTE_CONFIG Added below line 105 to 119
+SUMMERNOTE_CONFIG = {
 
-#     'summernote': {
-#         'width': '100%',
+    'summernote': {
+        'width': '100%',
 
-#         'toolbar': [
-#             ['style', ['bold', 'italic', 'underline', 'clear']],
-#             ['font', ['strikethrough']],
-#             ['fontsize', ['fontsize']],
-#             ['fontname', ['fontname']],
-#             ['para', ['ul', 'ol', 'paragraph']],
-#             ['table', ['table']],
-#         ],
-#     },
-# }
+        'toolbar': [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['fontsize', ['fontsize']],
+            ['fontname', ['fontname']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+        ],
+    },
+}
 
 WSGI_APPLICATION = 'finalproject4pr.wsgi.application'
 
