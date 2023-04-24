@@ -23,7 +23,7 @@ class Positive(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     last_updated = models.DateTimeField(auto_now=True)
     impact = models.IntegerField(choices=IMPACT, default=0)
-    Championship_numbers = models.IntegerField(
+    championship_numbers = models.IntegerField(
         default=1, validators=[
             MaxValueValidator(100),
             MinValueValidator(1)

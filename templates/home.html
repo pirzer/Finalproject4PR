@@ -1,0 +1,103 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+<!-- Page title -->
+{% block title %}
+    Home page
+{% endblock %}
+
+<!-- Background image for home.html -->
+    {% block header_image %}
+    {% if not 'page' in request.GET %}
+    <header>
+        <div class="parent-div-home">
+            <div class="row g-0">
+                <img class="header-image" src="https://res.cloudinary.com/erikandersson96/image/upload/v1657703341/spaghetti-g0a0a251b7_1920_nzhlua.jpg" alt="background image of ingredients to use in cooking">
+            </div>
+            <!-- Caption on home page -->
+            <div class="bg-dark rounded text-light text-center caption">
+                <h2 class="caption-header">Welcome to BASE says it!!! {{ request.GET.page }}</h2>
+                    <p class="caption-text">You share or pitch your favourite baseball story in this website with all our fans members <br> 
+                        Please, pitch your story to shout together "Play Ball!!!", but before you can open an account or login</p>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+    {% endblock %}
+{% block content %} 
+
+    <!-- Check if user is authenticated to make the welcome message personal or not -->
+    <div class="container text-dark text-center home-wte-welcome">
+        {% if user.is_authenticated %}
+            <h1 class="title p-4 text-center">Welcome BASE says it!!! - Stories. {{ user.username }}.</h1>
+            <h2 class="text-center">Pitch your favourite storie(s):</h2>
+            <p class="text-center">(Impact: 0 = National Unity, 1 = Role Models, 2 = Emotions)</p>
+        {% else %} 
+            <h1 class="title p-4 text-center">Welcome BASE says it!!! - Stories.</h1>
+            <p class="text-center">See all our stories listed for all the fans members.</p>
+            <h2 class="text-center">Pitch your favourite storie(s):</h2>
+            <p class="text-center">(Impact: 0 = National Unity, 1 = Role Models, 2 = Emotions)</p> 
+        {% endif %} 
+    </div>
+
+    <div class="container text-center text-md-left mb-3">
+        <div class="row text-center text-md-left g-3 card-row">
+            
+            {% for positive in object_list %}
+            <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mt-3">
+                <div class="card box-shadow h-100">
+                    {% if "placeholder" in positive.team_image.url %}
+                    <img class="card-img-top" src="{% static 'images/lou-gehrig-and-babe-ruth-mpi.jpg' %}" alt="Plate with pasta">
+                    {% else %}
+                    <img class="card-img-top" src="{{ positive.team_image.url }}" alt="{{ positive.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h3 class="card-title">{{ positive.title }}</h3>
+                        <p class="card-text">{{ positive.excerpt }}</p>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item align-items-center">Impact: {{ positive.impact }}</li>
+                        <li class="list-group-item align-items-center">Championships: {{ positive.championship_numbers }}</li>
+                        <li class="list-group-item align-items-center">Team AVG Season: {{ positive.team_avg_season}} avg</li>
+                        <li class="list-group-item align-items-center">Team AVG Season: {{ positive.team_avg_playoffs }} avg</li>
+                        <li class="list-group-item align-items-center">Created by: {{ positive.author }}</li>
+                    </ul>
+                    <!-- Url for view the story details -->
+                    <div class="card-footer">
+                         <a href="{% url 'positive_detail' positive.slug %}" class="btn btn-signup align-items-center">View story</a> 
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+            {% endif %}
+            {% endfor %}
+            </div>
+            <!-- Page navigation Next/Previous -->
+            <div class="row mt-3">
+                {% if is_paginated %}
+                <nav aria-label="Page Navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li>
+                                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;
+                                    Previous</a>
+                            </li>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                            <li>
+                                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}
+
+
+
+
