@@ -14,8 +14,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </script>
-    <meta name="keywords" content="positive, positive list, story">
-    <meta name="title" content="BASEsaysit - Positive app">
+    <!-- <meta name="keywords" content="positive, positive list, story">
+    <meta name="title" content="BASEsaysit - Positive app"> -->
 <!-- NavBar css link -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <!-- Favicon link -->
@@ -52,7 +52,7 @@
                     {% if user.is_authenticated %}
                     <!-- 'account_login' of Polls must be changed by 'add_positive' -Polls -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_positive' %}">Pitch your story</a>
+                        <a class="nav-link" href="{% url 'add_positive' %}">Pitch your story</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>

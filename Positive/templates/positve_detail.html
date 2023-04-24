@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!-- Page title -->
+{% block title %}
+    Positive detail page
+{% endblock %}
+
+<!-- Main Content for Story Detail -->
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <header class="mb-4">
+                <!-- Recipe Title -->
+                <h1 class="fw-bolder mb-1 base-say-it-text">{{ positive.title }}</h1>
+                <!-- Recipe: created on, author -->
+                <div class="text-muted fst-italic mb-2">
+                    <p>This story was created: {{ positive.created_on }}, by author: {{ positive.author }}.</p>
+                </div>
+            </header>
+            <div class="container">
+                <!-- Image of story -->
+                <div class="row">
+                    <figure class="mb-5">
+                        {% if "placeholder" in positive.team_image.url %}
+                            <img src="{% static 'images/lou-gehrig-and-babe-ruth-mpi.jpg' %}" alt="Plate with pasta" class="img-fluid rounded" id="standard-positive-image">
+                        {% else %}
+                            <img src="{{ positive.team_image.url }}" alt="{{ positive.title }}" class="img-fluid rounded" id="standard-positive-image">
+                        {% endif %}
+                    </figure>
+                </div>
+            </div>
+        </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <!-- Recipe details -->
+                    <div class="card mt-4 mb-4">
+                        <div class="card-header">
+                            <h3 class="positive-info-text">Story Details</h3>
+                            <p>(0 = National Unity, 1 = Role Models, 2 = Emotion)</p> 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="list-group-item">Impact: {{ positive.impact }}</li>
+                                        <li class="list-group-item">Championship numbers: {{ positive.championship_numbers }}</li>
+                                        <li class="list-group-item">Team AVG season: {{ positive.team_avg_season }} avg</li>
+                                        <li class="list-group-item">Team AVG Playoff: {{ positive.team_avg_playoffs }} avg</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pitch the story -->
+                <div class="row">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="positive-info-text">Pitch the story</h3>
+                        </div>
+                        <div class="card-body">{{ positive.pitch_the_story | safe }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Positive Story Instructions -->
+
+        <div class="col mt-2 mb-3">
+            <!-- Button for bookmark story to My favorites -->
+            {% if user.is_authenticated %}
+            <a href="{% url 'add_favorite' positive.slug %}"><button class="btn btn-signup btn-md" value="#" type="button">Bookmark story</button></a>
+            {% endif %}
+            <!-- Authentication for edit and delete story -->
+            {% if user.id == positive.author.id %}
+                <a href="{% url 'edit_positive' positive.slug %}" class="edit"><button class="btn btn-signup btn-md" value="{{ positive.slug }}" type="button">Edit story</button></a>
+                <button type="button" class="btn btn-danger btn-md mx-4" data-bs-toggle="modal" data-bs-target="#deleteModal{{positive.slug}}">Delete story</button>
+            {% endif %}
+        </div>
+        <!-- Delete story Modal -->
+        <div class="modal fade" id="deleteModal{{positive.slug}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete story</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Are you sure you want to delete {{ positive.title }}?</h4>
+                        <p>Warning! This action cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{% url 'delete_positive' positive.slug %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

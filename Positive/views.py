@@ -97,7 +97,7 @@ def add_positive(request):
 
     if request.method == "POST":
         positive_form = PositiveForm(request.POST, request.FILES)
-        print("holapana123")
+        print("hola123")
         if positive_form.is_valid():
             positive_form = positive_form.save(commit=False)
             positive_form.author = request.user
@@ -108,7 +108,7 @@ def add_positive(request):
             return redirect('home')
     else:
         positive_form = PositiveForm()
-    return render(request, "add_positive.html", context)
+    return render(request, "add_positive", context)
 
 
 @login_required
