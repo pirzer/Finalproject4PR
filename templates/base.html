@@ -17,10 +17,6 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 <!-- NavBar -->
-    <link rel ="stylesheet" href ="https://stackpath.bootstrapcdn.com / bootstrap / 4.4.1 / css / bootstrap.min.css"
-    integrity ="sha384-Vkoo8x4CGsO3 + Hhxv8T / Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin ="anonymous">
-    <title>Pollster {% block title %}{% endblock %}</title>
-<!-- NavBar -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
@@ -50,7 +46,7 @@
                         <a role="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#aboutModal">
                             About
                         </a>
-                    </li> 
+                    </li>
                     {% if user.is_authenticated %}
                     <!-- 'account_login' of Polls must be changed by 'polls:index' -Polls -->
                     <li class="nav-item">
@@ -125,11 +121,15 @@
             </div>
           </div>
 
-          <main class="flex-shrink-0 main-bg">
-
-            {% block content %}
-            <!-- Content Goes here -->
-            {% endblock content %}
+        <main class="flex-shrink-0 main-bg">
+    <!--NavBar-->
+    <div class ="container">
+        <div class ="row">
+            <div class =".col-md-6 m-auto">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
         </main>
     
         <!-- Footer -->
