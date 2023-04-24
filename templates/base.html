@@ -50,9 +50,9 @@
                         </a>
                     </li>
                     {% if user.is_authenticated %}
-                    <!-- 'account_login' of Polls must be changed by 'polls:index' -Polls -->
+                    <!-- 'account_login' of Polls must be changed by 'add_positive' -Polls -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_positive' %}">Pitch your story</a>
+                        <a class="nav-link" href="{% url 'account_positive' %}">Pitch your story</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
