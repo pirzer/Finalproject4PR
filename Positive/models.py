@@ -4,6 +4,7 @@ from django_extensions.db.fields import AutoSlugField
 from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
 IMPACT = ((0, "National Unity"), (1, "Role Models"), (2, "Emotion"))
 
@@ -21,25 +22,24 @@ class Positive(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     last_updated = models.DateTimeField(auto_now=True)
-    prep_time = models.IntegerField(
+    impact = models.IntegerField(choices=IMPACT, default=0)
+    Championship_numbers = models.IntegerField(
         default=1, validators=[
             MaxValueValidator(100),
             MinValueValidator(1)
         ])
-    difficulty = models.IntegerField(choices=IMPACT, default=0)
-    serves = models.IntegerField(
+    team_avg_season = models.IntegerField(
         default=1, validators=[
             MaxValueValidator(14),
             MinValueValidator(1)
         ])
-    cook_time = models.IntegerField(
+    team_avg_playoffs = models.IntegerField(
         default=1, validators=[
             MaxValueValidator(300),
             MinValueValidator(1)
         ])
-    positivestory = models.TextField()
-    teams = models.TextField()
-    meal_image = CloudinaryField('image', default='placeholder')
+    pitch_the_story = models.TextField()
+    team_image = CloudinaryField('image', default='placeholder')
 
     class Meta:
         """
