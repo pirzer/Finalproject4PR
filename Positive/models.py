@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
-IMPACT = ((0, "National Unity"), (1, "Role Models"), (2, "Emotion"))
+IMPACT = ((0, "National Unity"), (1, "Role Models"), (2, "Emotions"))
 
 
 class Positive(models.Model):

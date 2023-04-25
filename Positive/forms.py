@@ -13,7 +13,6 @@ class PositiveForm(forms.ModelForm):
             'title',
             'excerpt',
             'impact',
-            'serves',
             'championship_numbers',
             'team_avg_season',
             'team_avg_playoffs',

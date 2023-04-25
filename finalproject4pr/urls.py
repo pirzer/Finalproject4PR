@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# added path('', include('pages.urls')),
-# path('polls/', include('polls.urls')),
+# adding the line of positive, it causes the  error message as follows:
+# ModuleNotFoundError: No module named 'positive'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("blog.urls"), name="blog-urls"),
     path('summernote/', include('django_summernote.urls')),
     path("accounts/", include("allauth.urls")),
-    # path('', include('positive.urls'), name='positive_urls'),
+    path("", include("blog.urls")),
+    path('Positive/', include('Positive.urls')),
 ]

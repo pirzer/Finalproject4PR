@@ -6,6 +6,7 @@ from .models import Positive
 from .forms import PositiveForm
 from django.core.paginator import EmptyPage, Paginator
 from django.contrib import messages
+from . import views
 
 
 class PaginatorSafe(Paginator):
