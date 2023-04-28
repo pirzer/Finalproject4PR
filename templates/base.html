@@ -37,6 +37,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
+                    <!-- Standard navigation itmes -->
+                    <li class="nav-item">
+                        <a role="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            About
+                        </a>
+                    </li> 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -69,6 +75,29 @@
             </div>
         </div>
     </div>
+
+            <!-- Modal for About text -->
+            <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="aboutModalLabel">About - BASE says it!!! </h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body about-text">
+                        Baseball [BASE] says it!!! is a website for registers users, curious fans, and even 
+                        for BASE detractors. Everyone is free to explain and disscusse open topics.
+                        We cheer that every single fan who loves this sport can share and post all the passion
+                        here but respecting opinions, origins, ideas from our memebers. If you do not love BASE, 
+                        we expected that you can comprenhend BASE a bit more. Please, register an account or 
+                        login to shout together "Play Ball"
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
     <main class="flex-shrink-0 main-bg">
 
