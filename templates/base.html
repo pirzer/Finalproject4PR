@@ -4,7 +4,7 @@
 <html class="h-100">
 
 <head>
-    <title>BASE says it blog!!!</title>
+    <title>CodeStar Blog</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -13,27 +13,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
-    <!-- <meta name="keywords" content="positive, positive list, story">
-    <meta name="title" content="BASEsaysit - Positive app"> -->
-<!-- NavBar css link -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<!-- Favicon link -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <!-- Report Polls added before Logout -->
-    <!-- code star changed by BASE says it !!! url home below-->
-
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">BA<span class="red-o">SE</span>says<span
-                        class="thin">|It!!!</span></span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
+                        class="thin">|star</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,17 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
-                    <!-- Standard navigation itmes -->
-                    <li class="nav-item">
-                        <a role="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#aboutModal">
-                            About
-                        </a>
-                    </li>
                     {% if user.is_authenticated %}
-                    <!-- 'account_login' of Polls must be changed by 'add_positive' -Polls -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_positive' %}">Pitch your story</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -68,25 +52,11 @@
 
                 </ul>
                 <span class="navbar-text text-muted">
-                    Register for free, and let's shout "Play Ball"!!!
+                    adventures of a software developer
                 </span>
             </div>
         </div>
     </nav>
-
-    <!-- Giving a wave to the user when loggin -->
-    {% if user.is_authenticated %}
-    <ul class="navbar-nav ms-auto mt-3">
-        <li class="nav-item">
-            <h4>Hi Dude!!! <span class="badge 
-            {% if user.is_staff %}bg-primary
-            {%else%}bg-success
-            {% endif %}">{{ user.username }}</span></h4>
-        </li>
-    </ul>
-    {% endif %}
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -100,56 +70,28 @@
         </div>
     </div>
 
-        <!-- Modal for About text -->
-        <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="aboutModalLabel">About - BASE says it!!! </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body about-text">
-                    Baseball [BASE] says it!!! is a website for registers users, curious fans, and even 
-                    for BASE detractors. Everyone is free to explain and disscusse open topics.
-                    We cheer that every single fan who loves this sport can share and post all the passion
-                    here but respecting opinions, origins, ideas from our memebers. If you do not love BASE, 
-                    we expected that you can comprenhend BASE a bit more. Please, register an account or 
-                    login to shout together "Play Ball"
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <main class="flex-shrink-0 main-bg">
 
-        <main class="flex-shrink-0 main-bg">
-    <!--NavBar-->
-    <div class ="container">
-        <div class ="row">
-            <div class =".col-md-6 m-auto">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
-    </div>
-        </main>
-    
-        <!-- Footer -->
-        <footer class="footer mt-auto py-3 dark-bg">
-            <p class="m-0 text-center text-white">Made by Baseball says it!!!</p>
-            <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-                <i class="fab fa-twitter-square ms-3"></i>
-                <i class="fab fa-instagram-square ms-3"></i>
-                <i class="fab fa-youtube-square ms-3"></i></p>
-        </footer>
-        <script>
-            setTimeout(function () {
-                let messages = document.getElementById('msg');
-                let alert = new bootstrap.Alert(messages);
-                alert.close();
-            }, 2000);
-        </script>
-    </body>
-    
-    </html>
-    
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 dark-bg">
+        <p class="m-0 text-center text-white">Made by Code Instituters</p>
+        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
+            <i class="fab fa-twitter-square ms-3"></i>
+            <i class="fab fa-instagram-square ms-3"></i>
+            <i class="fab fa-youtube-square ms-3"></i></p>
+    </footer>
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2000);
+    </script>
+</body>
+
+</html>

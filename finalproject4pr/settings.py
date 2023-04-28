@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # To change Debug from True to False before heroku deployment
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['finalproject4pr.herokuapp.com', 'localhost']
 
@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'blog',
-    'Positive',
 ]
 
 SITE_ID = 1
@@ -100,23 +99,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# SUMMERNOTE_CONFIG Added below line 105 to 119
-SUMMERNOTE_CONFIG = {
-
-    'summernote': {
-        'width': '100%',
-
-        'toolbar': [
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough']],
-            ['fontsize', ['fontsize']],
-            ['fontname', ['fontname']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-        ],
-    },
-}
 
 WSGI_APPLICATION = 'finalproject4pr.wsgi.application'
 
